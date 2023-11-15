@@ -27,6 +27,7 @@ const Signup = () => {
 
     return(
         <div className="container">
+					<h3 className="fs-4 text-center">Login</h3>
             <div className="row justify-content-center">
                 <form className="col-md-4 mt-3 pt-3 pb-3">
                     { "" !==notice &&
@@ -43,7 +44,7 @@ const Signup = () => {
 													placeholder="name@example.com"
 													value={ email } onChange={ (e) => setEmail(e.target.value) }>
 												</input>
-                        <label htmlFor="signupEmail" className="form-label">Enter an email address for your username</label>
+                        <label htmlFor="signupEmail" className="form-label">Email Address</label>
                     </div>
                     <div className="form-floating mb-3">
                         <input

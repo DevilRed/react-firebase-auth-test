@@ -22,6 +22,7 @@ const Login = () => {
 
     return(
         <div className="container">
+					<h3 className="fs-4 text-center">Login</h3>
             <div className="row justify-content-center">
                 <form className="col-md-4 mt-3 pt-3 pb-3">
                     { "" !== notice &&
