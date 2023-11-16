@@ -12,6 +12,15 @@ const Signup = () => {
 
   const signupWithUsernameAndPassword = async (e) => {
     e.preventDefault();
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
+    if (password.length < 8) {
+      setNotice("Password must have a minimum 8 characters");
+      return;
+    } else if (specialChars.test(password) == false) {
+      setNotice("Password must have one special character at least");
+      return;
+    }
 
     if (password === confirmPassword) {
       try {
