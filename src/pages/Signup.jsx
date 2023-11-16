@@ -17,8 +17,13 @@ const Signup = () => {
       try {
         await createUserWithEmailAndPassword(auth, email, password);
         navigate("/");
-      } catch {
-        setNotice("Sorry, something went wrong. Please try again.");
+      } catch (error) {
+        // console.log(error.code, error.message);
+        if (error.code === "auth/email-already-in-use") {
+          setNotice("Email is already in use, please use another email");
+        } else {
+          setNotice("Sorry, something went wrong. Please try again.");
+        }
       }
     } else {
       setNotice("Passwords don't match. Please try again.");
