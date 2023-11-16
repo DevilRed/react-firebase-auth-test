@@ -34,7 +34,10 @@ const Signup = () => {
     <div className="container">
       <h3 className="fs-4 text-center">Register</h3>
       <div className="row justify-content-center">
-        <form className="col-md-4 mt-3 pt-3 pb-3">
+        <form
+          className="col-md-4 mt-3 pt-3 pb-3"
+          onSubmit={signupWithUsernameAndPassword}
+        >
           {"" !== notice && (
             <div className="alert alert-warning" role="alert">
               {notice}
@@ -44,6 +47,7 @@ const Signup = () => {
             <input
               id="signupEmail"
               type="email"
+              required
               className="form-control"
               aria-describedby="emailHelp"
               placeholder="name@example.com"
@@ -58,6 +62,7 @@ const Signup = () => {
             <input
               id="signupPassword"
               type="password"
+              required
               className="form-control"
               placeholder="Password"
               value={password}
@@ -81,11 +86,7 @@ const Signup = () => {
             </label>
           </div>
           <div className="d-grid">
-            <button
-              type="submit"
-              className="btn btn-primary pt-3 pb-3"
-              onClick={(e) => signupWithUsernameAndPassword(e)}
-            >
+            <button type="submit" className="btn btn-primary pt-3 pb-3">
               Signup
             </button>
           </div>
