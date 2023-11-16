@@ -11,6 +11,7 @@ const Login = () => {
 
   const loginWithUsernameAndPassword = async (e) => {
     e.preventDefault();
+    setEmail(email.trim());
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
