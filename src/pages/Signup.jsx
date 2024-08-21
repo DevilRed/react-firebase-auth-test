@@ -24,8 +24,9 @@ const Signup = () => {
 
     if (password === confirmPassword) {
       try {
-        await createUserWithEmailAndPassword(auth, email, password);
+        const response = await createUserWithEmailAndPassword(auth, email, password);
         navigate("/");
+        getToken(response);// save to ls
       } catch (error) {
         // console.log(error.code, error.message);
         if (error.code === "auth/email-already-in-use") {
@@ -38,6 +39,12 @@ const Signup = () => {
       setNotice("Passwords don't match. Please try again.");
     }
   };
+  const getToken = (response) => {
+    const { user } = response;
+    const token = user.auth.currentUser.accessToken;
+    console.log(token);
+    // save to local storage?
+  }
 
   return (
     <div className="container">
